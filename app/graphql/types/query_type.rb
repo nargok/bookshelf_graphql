@@ -7,7 +7,7 @@ class Types::QueryType < Types::BaseObject
     description: "An example field added by the generator XYZ" do
     argument :name, String, required: true
   end
-  def test_field(name)
-    "Hello #{name}"
+  def test_field(name:)
+    "Yes we can! I am #{name} Let's change America!"
   end
 end
