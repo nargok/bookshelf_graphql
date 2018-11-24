@@ -1,24 +1,82 @@
 # README
+GraphQLの練習用プロジェクト
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Queryの例
 
-Things you may want to cover:
+```
+{
+  authors {
+    id
+    full_name
+  }
+}
+```
 
-* Ruby version
+## Mutationの例
 
-* System dependencies
+```
+mutation {
+  createAuthorByEachField(first_name: "FirstName", last_name: "LastName", yob: 1587, is_alive:false) {
+    id
+    full_name
+  }
+}
+```
 
-* Configuration
+```
+mutation createAuthor($first_name:String, $last_name:String, $yob:Int, $is_alive:Boolean){
+  createAuthorByEachField(first_name: $first_name, last_name: $last_name, yob: $yob, is_alive:$is_alive) {
+    id
+    full_name
+  }
+}
 
-* Database creation
+# variables
+{
+  "first_name": "FirstName",
+  "last_name": "LastName",
+  "yob": 1978,
+  "is_alive": true
+}
+```
 
-* Database initialization
+```
+mutation createAuthor($author: AuthorInputType!) {
+  createAuthor(author: $author) {
+    id
+    full_name
+  }
+}
 
-* How to run the test suite
+# variable
+{ "author": {
+  "first_name": "FirstName",
+  "last_name": "LastName",
+  "yob": 1978,
+  "is_alive": true
+  }
+}
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+mutation updateAuthor($author:AuthorInputType!) {
+  updateAuthor(author:$author) 
+}
+```
 
-* Deployment instructions
+```
+mutation {
+  deleteAuthor(id: 4)
+}
+```
 
-* ...
+```
+mutation createAuthor($author: AuthorInputType!) {
+  createAuthor(author: $author) {
+    errors {
+      field_name
+      errors
+    }
+  }
+}
+```
