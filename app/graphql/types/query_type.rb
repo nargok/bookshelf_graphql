@@ -8,6 +8,7 @@ class Types::QueryType < Types::BaseObject
     argument :name, String, required: true
   end
   def test_field(name:)
-    "Yes we can! I am #{name} Let's change America!"
+    Rails.logger.info context[:time]
+    "Yes we can! I am #{name} Let's change!"
   end
 end
