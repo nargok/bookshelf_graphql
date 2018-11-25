@@ -81,9 +81,21 @@ mutation createAuthor($author: AuthorInputType!) {
 }
 ```
 
-# Login
+## Login
 ```
 {
   login(email: "a@b.c", password: "1")
+}
+```
+
+## currentUser
+HTTP HeaderにAuthorizationをつけて↓を実行
+```
+{
+  currentUser {
+    id
+    email
+    is_superadmin
+  }
 }
 ```
