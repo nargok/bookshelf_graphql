@@ -99,3 +99,10 @@ HTTP HeaderにAuthorizationをつけて↓を実行
   }
 }
 ```
+
+## Logout
+```
+{
+  logout
+}
+```
