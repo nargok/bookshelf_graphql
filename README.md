@@ -80,3 +80,10 @@ mutation createAuthor($author: AuthorInputType!) {
   }
 }
 ```
+
+# Login
+```
+{
+  login(email: "a@b.c", password: "1")
+}
+```
